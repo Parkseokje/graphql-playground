@@ -1,0 +1,27 @@
+type User {
+  id: Int!
+  name: String!
+  age: Int!
+  gender: String!
+}
+
+type Movie {
+  id: Int!
+  title: String!
+  rating: Float!
+  summary: String!
+  small_cover_image: String!
+}
+
+type Query {
+  users: [User]!
+  user(id: Int!): User
+  movies(limit: Int!): [Movie],
+  suggestion(id: Int!): [Movie]
+}
+
+type Mutation {
+  addUser(name: String!, age: Int!, gender: String!): User,
+  updateUser(id: Int!, name: String!, age: Int!, gender: String!): [User]
+  deleteUser(id: Int!): Boolean
+}
